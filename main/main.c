@@ -7,6 +7,7 @@
 #include "esp_sleep.h"
 #include "nvs_flash.h"
 #include "nvs.h"
+#include "esp_random.h"
 
 #include "renard_phy_s2lp_protocol.h"
 #include "renard_phy_s2lp.h"
@@ -44,6 +45,9 @@ static uint16_t next_seqnum(void)
 
 void app_main(void)
 {
+	printf("startup delay van 10s");
+	vTaskDelay(10000 / portTICK_PERIOD_MS);
+	
 	/* S2-LP SPI communication initialization */
 	printf("[renard-phy-s2lp-demo-esp32] Initializing S2-LP...\r\n");
 
